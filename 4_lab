@@ -1,0 +1,95 @@
+#include<iostream>
+	#include<math.h>
+	#define n 5
+
+	using namespace std;
+	
+		class Matrix
+	{
+	private:
+		int a[n][n];
+		int prod, min, sum;
+		int i, j, k, element, new_element;
+		long double g_m;
+	public:
+		void matrix_input();
+		void matrix_output();
+		void matrix_sorting();
+		void column_min_and_product();
+	};
+	
+		void Matrix::matrix_input()
+	{
+		for (i = 0; i < n; i++) {
+			for (j = 0; j < n; j++) {
+				cout << "Please, enter the element [" << i+1 << ";" << j+1 << "]";
+				cin >> a[i][j];
+				cout << endl;
+			}
+		}
+	}
+	
+		void Matrix::matrix_output()
+	{
+		for (i = 0; i < n; i++) {
+			for (j = 0; j < n; j++) {
+				if (j == 0) cout << endl;
+				cout << a[i][j] << "\t";
+			}
+		}
+	}
+	
+	void Matrix::matrix_sorting()
+	{
+		for (i = 0;i < n; i++)
+		{
+			for (j = 0; j < n; j++)
+			{
+				element = a[i][j];
+				new_element = j;
+				for (k = j + 1; k < n; k++)
+				{
+					if (a[i][k] < element)
+					{
+						new_element = k;
+						element = a[i][k];
+					}
+				}
+				a[i][new_element] = a[i][j];
+				a[i][j] = element;
+			}
+		}
+	}
+	
+	 void Matrix::column_min_and_product() 
+	 {
+	 cout << endl;
+	 sum = 0;
+	 for (j = 0; j < n; j++) {
+	   min = 100;
+		for (i = 0; i < n; i++) {
+			if (a[i][j] < min) {
+				min = a[i][j];
+			}
+		}
+		cout << " Min element of column " << j + 1 << " is " << min << endl;
+		prod *= min;
+	 }
+	 cout << " Product of elements is " << prod;
+ }
+
+ int main()
+	{	Matrix X;
+		X.matrix_input();
+		cout << endl;
+		cout << "Entered matrix:\n";
+		X.matrix_output();
+		cout << endl;
+		X.matrix_sorting();
+		cout <<"\n New matrix:\n";
+		X.matrix_output();
+		cout << endl;
+		cout <<"\n Summation:\n";
+		X.column_min_and_product();
+		cout << endl;
+	}
