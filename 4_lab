@@ -4,8 +4,7 @@
 
 	using namespace std;
 	
-		class Matrix
-	{
+		class Matrix {
 	private:
 		int a[n][n];
 		int prod, min, sum;
@@ -29,8 +28,7 @@
 		}
 	}
 	
-		void Matrix::matrix_output()
-	{
+		void Matrix::matrix_output() {
 		for (i = 0; i < n; i++) {
 			for (j = 0; j < n; j++) {
 				if (j == 0) cout << endl;
@@ -39,8 +37,7 @@
 		}
 	}
 	
-	void Matrix::matrix_sorting()
-	{
+	void Matrix::matrix_sorting() {
 		for (i = 0;i < n; i++)
 		{
 			for (j = 0; j < n; j++)
@@ -61,8 +58,7 @@
 		}
 	}
 	
-	 void Matrix::column_min_and_product() 
-	 {
+	 void Matrix::column_min_and_product() {
 	 cout << endl;
 	 sum = 0;
 	 for (j = 0; j < n; j++) {
